@@ -12,8 +12,8 @@ public class FrequencyOfCharacters {
 
 
     public ArrayList<Integer> solve(String A) {
-        // Integer [] arr = new Integer[26] initializes all 26 to null
-        // int[] arr = new int[26] initializes all 26 to 0
+        // 'Integer [] arr = new Integer[26]' initializes all 26 to null
+        // 'int[] arr = new int[26]' initializes all 26 to 0
         int[] arr = new int[26];
 
         for (int i = 0; i < A.length(); i++) {
