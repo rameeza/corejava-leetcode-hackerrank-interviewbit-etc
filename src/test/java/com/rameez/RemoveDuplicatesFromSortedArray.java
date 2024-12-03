@@ -6,6 +6,8 @@ import org.junit.Test;
 
 public class RemoveDuplicatesFromSortedArray {
 
+
+    // APPROACH 1: SLOWER
     public int removeDuplicates(int[] nums) {
         if (nums.length < 2) {
             return nums.length;
@@ -29,6 +31,18 @@ public class RemoveDuplicatesFromSortedArray {
             }
         }
         return answer;
+    }
+
+    // APPROACH 2: FASTER
+    public int removeDuplicates2(int[] nums) {
+        int index = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (!(nums[i] == nums[i - 1])) {
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
+
     }
 
     @Test
