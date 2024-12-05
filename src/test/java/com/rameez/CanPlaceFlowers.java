@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class CanPlaceFlowers {
 
+    // METHOD 1
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
 
         int countOfInsertablePositions = 0;
@@ -52,6 +53,29 @@ public class CanPlaceFlowers {
         countOfInsertablePositions += (lastWidthOf0s / 2);
 
         return (countOfInsertablePositions >= n);
+    }
+
+    // METHOD 2: SIMPLER CODE
+    public boolean canPlaceFlowers2(int[] flowerbed, int n) {
+        boolean isLeftAvailable;
+        boolean isRightAvailable;
+        boolean answer = false;
+        for (int i = 0; i < flowerbed.length; i++) {
+            // vi
+            isLeftAvailable = (i == 0) || (flowerbed[i - 1] == 0);
+            isRightAvailable = (i == (flowerbed.length - 1) || (flowerbed[i + 1] == 0));
+
+            if (flowerbed[i] == 0 && isLeftAvailable && isRightAvailable) {
+                flowerbed[i] = 1;
+                n--;
+            }
+            if (n <= 0) {
+                answer = true;
+                break;
+            }
+        }
+
+        return answer;
     }
 
     @Test
