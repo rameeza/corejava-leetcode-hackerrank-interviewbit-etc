@@ -7,6 +7,7 @@ import java.util.Stack;
 
 import static org.junit.Assert.assertEquals;
 
+// https://leetcode.com/problems/longest-common-prefix/
 // https://www.interviewbit.com/problems/longest-common-prefix
 
 public class LongestCommonPrefix {
