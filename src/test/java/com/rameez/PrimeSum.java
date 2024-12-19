@@ -2,6 +2,7 @@ package com.rameez;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 // https://www.interviewbit.com/problems/prime-sum/
