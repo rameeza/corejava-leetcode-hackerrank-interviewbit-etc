@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 class SingleNumber {
 
+    // METHOD 1: WITHOUT USING BITWISE OPERATOR (THIS METHOD IS SLOWER TO EXECUTE)
     public int singleNumber(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
@@ -35,6 +36,16 @@ class SingleNumber {
         }
         return answer;
     }
+
+    // METHOD 2: USING BITWISE OPERATOR (THIS METHOD IS FASTER TO EXECUTE)
+    public int singleNumber2(int[] nums) {
+        int answer = 0;
+        for (int num : nums) {
+            answer ^= num;
+        }
+        return answer;
+    }
+
 
     @Test
     void test() {
