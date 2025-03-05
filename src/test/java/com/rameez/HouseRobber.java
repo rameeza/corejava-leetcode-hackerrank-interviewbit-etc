@@ -9,6 +9,7 @@ import java.util.List;
 
 class HouseRobber {
 
+    // METHOD 1: TAKES O(n) SPACE
     public int rob(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
@@ -25,6 +26,26 @@ class HouseRobber {
         }
 
         return dp[nums.length - 1];
+    }
+
+
+    // METHOD 2: TAKES O(1) SPACE
+    public int rob2(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        } else if (nums.length == 2) {
+            return Math.max(nums[0], nums[1]);
+        }
+        int p = nums[0], q = Math.max(nums[0], nums[1]);
+
+        int answer = 0;
+        for (int i = 2; i < nums.length; i++) {
+            answer = Math.max(q, p + nums[i]);
+            p = q;
+            q = answer;
+        }
+
+        return answer;
     }
 
     @Test
