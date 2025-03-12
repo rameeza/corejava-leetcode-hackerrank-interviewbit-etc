@@ -10,7 +10,7 @@ import java.util.Set;
 
 class MissingNumber {
 
-    // METHOD 1: SLOW
+    // METHOD 1: SLOW (Passes all test cases)
     public int missingNumber(int[] nums) {
         Arrays.sort(nums);
         int ans = 0;
@@ -30,7 +30,7 @@ class MissingNumber {
         return ans;
     }
 
-    // METHOD 2: FASTER
+    // METHOD 2: FASTER (Passes all test cases)
     public int missingNumber2(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
@@ -46,7 +46,7 @@ class MissingNumber {
         return ans;
     }
 
-    // METHOD 3: FASTEST
+    // METHOD 3: FASTEST (Passes all test cases)
     public int missingNumber3(int[] nums) {
         int l = nums.length;
         int expectedSum = (l * (l + 1)) / 2;
