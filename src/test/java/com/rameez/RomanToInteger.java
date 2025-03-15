@@ -69,6 +69,40 @@ public class RomanToInteger {
         return answer;
     }
 
+    // APPROACH 3: EXECUTES FASTER THAN THE ABOVE 2
+    public int romanToInt3(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+
+        if (s.length() == 1) {
+            return map.get(s.charAt(0));
+        }
+
+        int ans = 0;
+        for (int i = 1; i < s.length(); i++) {
+            char prevC = s.charAt(i - 1);
+            char c = s.charAt(i);
+
+            int prevV = map.get(prevC);
+            int v = map.get(c);
+
+            if (v > prevV) {
+                ans -= prevV;
+            } else {
+                ans += prevV;
+            }
+            if (i == s.length() - 1) {
+                ans += v;
+            }
+        }
+        return ans;
+    }
 
     @Test
     public void main() {
